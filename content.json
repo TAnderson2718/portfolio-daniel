@@ -1,0 +1,298 @@
+{
+  "meta": {
+    "siteTitle": "Daniel — Full-Stack Engineer",
+    "description": "Full-stack engineer building reliable websites and web apps end to end. Predictable timelines, code worth keeping. Available for project work.",
+    "ogImage": ""
+  },
+  "nav": {
+    "brand": "~",
+    "links": [
+      {
+        "label": "work",
+        "href": "#work"
+      },
+      {
+        "label": "how I work",
+        "href": "#process"
+      },
+      {
+        "label": "connect",
+        "href": "#connect"
+      }
+    ]
+  },
+  "hero": {
+    "roleLabel": "— hello, I'm Daniel ♪",
+    "tagline": [
+      "Code",
+      "that",
+      "*ages*",
+      "**well.**"
+    ],
+    "roleMeta": "Full-Stack · Engineer",
+    "availability": {
+      "status": "Available now",
+      "responseTime": "Reply within a day",
+      "engagement": "Project-based, flat fee"
+    },
+    "vibeBadge": {
+      "enabled": false,
+      "line1": "now building with",
+      "line2Prefix": "",
+      "line2Strong": "AI-augmented",
+      "line2Suffix": " engineering"
+    },
+    "intro": "Reliable websites and web apps, end to end.\nPredictable timelines. Code worth keeping.",
+    "portrait": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780226444/90ff161de26d3d54c23d19bbe49e7ad9_ot7dep.jpg",
+    "handnote": "(yes — that's actually me)",
+    "testimonials": []
+  },
+  "skills": [
+    {
+      "label": "Marketing sites",
+      "color": "terra",
+      "rot": -2,
+      "tape": true,
+      "pinned": true
+    },
+    {
+      "label": "E-commerce",
+      "color": "terra",
+      "rot": -1.5,
+      "pinned": true
+    },
+    {
+      "label": "Web apps & SaaS",
+      "color": "paper",
+      "rot": -2.5
+    },
+    {
+      "label": "AI / LLM apps",
+      "color": "kraft",
+      "rot": 2,
+      "tape": true
+    },
+    {
+      "label": "APIs & integrations",
+      "color": "moss",
+      "rot": -1.5
+    },
+    {
+      "label": "Mobile apps",
+      "color": "yellow",
+      "rot": 1.5
+    }
+  ],
+  "values": {
+    "mark": "↓ 3 things I strongly believe in",
+    "heading": "Principles",
+    "headingAccent": "on the wall",
+    "lede": "Each one earned the hard way — and pinned above my desk.",
+    "items": [
+      {
+        "illo": "pager",
+        "title": "Built to last.",
+        "body": "Holds up over time. Room to grow without disrupting what works."
+      },
+      {
+        "illo": "subtract",
+        "title": "Clarity before code.",
+        "body": "Pin down the details first. Code comes after they're settled. Fewer rewrites, no surprises later."
+      },
+      {
+        "illo": "git",
+        "title": "Always in the loop.",
+        "body": "Updates as we go, demos when there's something to show. Heads-up early on anything that shifts the plan."
+      }
+    ]
+  },
+  "work": {
+    "mark": "↓ pinned up",
+    "heading": "Work",
+    "headingAccent": "on the board",
+    "lede": "A few of the client projects I've shipped.",
+    "footnote": "↑ everything I do, I do with care.",
+    "items": [
+      {
+        "x": 30,
+        "y": 55,
+        "w": 280,
+        "h": 210,
+        "r": -3,
+        "client": "Marketing site rebuild",
+        "label": "Astro · Tailwind",
+        "outcome": "Loads in under a second · perfect speed scores",
+        "bg": "#C46B47",
+        "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780220067/DD4C414D-14B2-4973-8A5A-201002CF5398_ngqjsv.png",
+        "shots": [
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780220093/DD4C414D-14B2-4973-8A5A-201002CF5398_jcanec.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780220111/911546B5-74A5-4628-8D77-A5E414DB1432_x3fg7z.png",
+          ""
+        ],
+        "demoUrl": "",
+        "summary": "Rebuilt a slow, template-heavy marketing site from scratch — clean design, loads in under a second on every device, and a CMS the team can update without touching code.",
+        "badge": {
+          "kind": "featured",
+          "label": "★ featured"
+        }
+      },
+      {
+        "x": 340,
+        "y": 85,
+        "w": 260,
+        "h": 200,
+        "r": 2.5,
+        "client": "AI support assistant",
+        "label": "Next.js · OpenAI · pgvector",
+        "outcome": "Searches 40k help docs · cites every answer · knows when to ask a human",
+        "bg": "#1F2A24",
+        "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222046/7EB56F88-40E7-4D71-8A8B-300266458FEA_tfubgn.png",
+        "shots": [
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222077/7EB56F88-40E7-4D71-8A8B-300266458FEA_ueznkv.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222090/D4E41976-F9BA-4720-AF82-C6FCF9211CAF_nzaqme.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222106/0E856DCE-1B3B-43AB-AAB8-3C0B11425F5C_t82h5f.png"
+        ],
+        "demoUrl": "",
+        "summary": "Built a support assistant grounded in the client's existing help docs (about 40k pages). It drafts answers with sources for every claim and quietly passes anything it's unsure about to a human.",
+        "badge": null
+      },
+      {
+        "x": 630,
+        "y": 95,
+        "w": 280,
+        "h": 210,
+        "r": -2,
+        "client": "SaaS analytics platform",
+        "label": "React · tRPC · Postgres",
+        "outcome": "Pages load instantly · component library the team can extend",
+        "bg": "#2C3036",
+        "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222152/12368E91-3728-40F5-A90B-460BCB7E7EAE_gr3mlu.png",
+        "shots": [
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222173/12368E91-3728-40F5-A90B-460BCB7E7EAE_rgcoks.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222216/AA4F1AE1-5208-498D-A2DA-735B7DADA9C4_qtivbr.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222230/7E2A3A36-3828-401D-B243-9ABA5A008BCF_rlwhkd.png"
+        ],
+        "demoUrl": "",
+        "summary": "Rebuilt a slow dashboard from the ground up — page loads went from about 2 seconds to instant. Came with a component library the in-house team can extend without me."
+      },
+      {
+        "x": 80,
+        "y": 300,
+        "w": 260,
+        "h": 210,
+        "r": 2,
+        "client": "E-commerce store",
+        "label": "Shopify · Next.js · Tailwind",
+        "outcome": "Shipped in 6 weeks · custom checkout · loads instantly on mobile",
+        "bg": "#3A2B26",
+        "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222252/700D797F-860B-487E-927D-FB5C7EDEAB3F_spbwto.png",
+        "shots": [
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222266/700D797F-860B-487E-927D-FB5C7EDEAB3F_sdqpgu.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222279/9C9E775D-A485-4CC4-AD3B-FB32EC5F0371_ucwqba.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222297/2B71825D-D65E-4AC2-B56E-B34CA689D55C_wsjijc.png"
+        ],
+        "demoUrl": "",
+        "summary": "Built a custom storefront with a fast checkout flow, mobile-first design, and clean product pages — all in 6 weeks from kickoff to live.",
+        "badge": {
+          "kind": "featured",
+          "label": "★ featured"
+        }
+      },
+      {
+        "x": 380,
+        "y": 330,
+        "w": 280,
+        "h": 200,
+        "r": -2.5,
+        "client": "Workflow automation",
+        "label": "n8n · OpenAI · webhooks",
+        "outcome": "12 tools wired together · AI handles the routing",
+        "bg": "#7A6A55",
+        "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222324/87FB472C-9733-420C-BBFE-B5200D2C14A4_cvgico.png",
+        "shots": [
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222342/87FB472C-9733-420C-BBFE-B5200D2C14A4_ef8ifv.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222359/7D05044C-D93F-4F19-8FBC-36FC5E6B60B2_blmn5a.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222413/1D45755F-7043-404B-AE5C-CE80723D4C14_hwityq.png"
+        ],
+        "demoUrl": "",
+        "summary": "Replaced a tangle of manual handoffs with a single automated flow — wires together 12 tools (CRM, email, sheets, Slack, AI), with the AI deciding what gets sent where. Runs in production without losing a record."
+      },
+      {
+        "x": 690,
+        "y": 310,
+        "w": 200,
+        "h": 300,
+        "r": 1.5,
+        "client": "Cross-platform mobile app",
+        "label": "React Native · Expo · Supabase",
+        "outcome": "From idea to App Store in 8 weeks · iOS + Android",
+        "bg": "#D9B27A",
+        "thumbFit": "contain",
+        "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222440/563892B1-5F4A-46AE-823C-174AEFD99566_kamn8a.png",
+        "shots": [
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222454/563892B1-5F4A-46AE-823C-174AEFD99566_wbqoox.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222468/BA24E5B2-8DFC-43D8-9E75-6581E3845010_bg3uzy.png",
+          "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222483/33E7C9B7-DF0C-4E16-B8A5-08B0AFE19FA8_p2vici.png"
+        ],
+        "demoUrl": "",
+        "summary": "Designed and shipped a cross-platform app — offline-first sync, push notifications, and a clean onboarding flow. From kickoff to a live App Store / Play Store listing in 8 weeks, one codebase across both."
+      }
+    ]
+  },
+  "process": {
+    "mark": "→ how working together looks",
+    "heading": "Process",
+    "headingAccent": "start to handoff",
+    "lede": "Predictable and async-friendly, start to finish.",
+    "steps": [
+      {
+        "title": "A first message",
+        "body": "It starts with a paragraph about your project — email or chat, whatever's easiest. Within a day you'll get an honest read on whether I'm the right fit."
+      },
+      {
+        "title": "Scoped proposal",
+        "body": "Within 48h I send a 1-page proposal: scope, milestones, flat fee, and what's in vs out. You approve or tweak it, and we're set."
+      },
+      {
+        "title": "Steady async updates",
+        "body": "Steady chat updates, demos when there's something to show. You always know what shipped and what's next."
+      },
+      {
+        "title": "Handoff with docs",
+        "body": "Code and clear setup docs — everything documented and ready to run. A clean handoff, not a code dump."
+      }
+    ]
+  },
+  "proof": {
+    "mark": "",
+    "heading": "",
+    "headingAccent": "",
+    "stamps": []
+  },
+  "cta": {
+    "mark": "↓ just say hi",
+    "heading": "Let's talk",
+    "headingAccent": "about your project",
+    "intro": "Tick any that fit. The sketch fills in as you go.",
+    "checklist": [
+      "You want a collaborator, not just someone to write code",
+      "You've got an idea — rough is fine",
+      "Open to project-based pricing",
+      "Starting fresh, or improving something live"
+    ],
+    "buttonLabel": "Drop me a line",
+    "buttonHref": "mailto:danieldong2718@gmail.com?subject=Project%20inquiry",
+    "contactsLead": "or find me here",
+    "contacts": [
+      {
+        "kind": "mail",
+        "label": "danieldong2718@gmail.com",
+        "href": "mailto:danieldong2718@gmail.com"
+      }
+    ]
+  },
+  "footer": {
+    "sig": "— thanks for scrolling.",
+    "copyright": "© 2026 · Daniel"
+  }
+}
