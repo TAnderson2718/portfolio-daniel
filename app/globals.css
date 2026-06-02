@@ -1605,6 +1605,10 @@ html{ scrollbar-width: thin; scrollbar-color: var(--terra-soft) var(--paper-2); 
   .skill-tags-head{ flex-direction: column; align-items: flex-start; gap: 4px; }
   .skill-tags-hint{ font-size: 9px; }
   .tagline{ font-size: clamp(44px, 12vw, 72px); }
+  /* nav: keep logo + 3 links on one line — smaller, tighter, no internal wrapping */
+  .nav{ padding: 12px 2px 8px; }
+  .nav-links{ gap: 15px; }
+  .nav-link{ font-size: 19px; padding: 4px 2px; white-space: nowrap; }
 }
 
 /* ---------- Contact modal ---------- */
