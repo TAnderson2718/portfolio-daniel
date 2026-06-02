@@ -1565,7 +1565,7 @@ html{ scrollbar-width: thin; scrollbar-color: var(--terra-soft) var(--paper-2); 
   .hero-art{ height: auto; margin-top: 4px; }
   .hero-art > svg{ display: none; }        /* doodle circle + arrow */
   .hero-art > span{ display: none; }        /* "(yes — that's actually me)" handnote */
-  .hero-art > div{ position: static; }      /* polaroid wrapper */
+  .hero-art > div{ position: static !important; }  /* polaroid wrapper — !important beats the inline position:absolute */
   .portrait-wrap{ width: min(300px, 82vw); margin: 4px auto 0; }
   .board{ height: auto; display: flex; flex-direction: column; gap: 16px; padding: 16px 12px; }
   .board::before{ display: none; }
