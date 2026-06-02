@@ -1556,28 +1556,17 @@ html{ scrollbar-width: thin; scrollbar-color: var(--terra-soft) var(--paper-2); 
 .doodle.terra path{ stroke: var(--terra); }
 
 /* responsive */
-@media (max-width: 960px){
-  .shell{ padding: 24px 22px 80px; }
+/* Below the wide-desktop collage width, stack hero + work board cleanly.
+   The absolute-positioned polaroid/card collage only fits at the full ~1220px
+   shell width; anything narrower (tablets, non-maximized desktop windows, phones)
+   gets the simple centered/stacked layout. */
+@media (max-width: 1220px){
   .hero-grid{ grid-template-columns: 1fr; }
-  /* hero: drop the desktop collage on mobile — center the polaroid, hide floating doodles */
   .hero-art{ height: auto; margin-top: 4px; }
   .hero-art > svg{ display: none; }        /* doodle circle + arrow */
   .hero-art > span{ display: none; }        /* "(yes — that's actually me)" handnote */
   .hero-art > div{ position: static; }      /* polaroid wrapper */
   .portrait-wrap{ width: min(300px, 82vw); margin: 4px auto 0; }
-  .hero-subline{ gap: 14px; }
-  .skill-tags-block{ max-width: 100%; }
-  .skill-tags{ max-width: 100%; gap: 10px; }
-  .skill-tag{ font-size: 19px; padding: 7px 13px; }
-  .values-row{ grid-template-columns: 1fr; }
-  .values-connectors{ display: none; }
-  .belief-title{ font-size: 26px; }
-  .about-grid{ grid-template-columns: 1fr; }
-  .about-flow{ display: none; }
-  .cta-card{ grid-template-columns: 1fr; padding: 30px 28px; }
-  .cta-links{ gap: 8px; }
-  .contact-pill{ font-size: 11px; padding: 6px 10px 6px 9px; }
-  /* work board: vertical stack instead of the free-drag collage */
   .board{ height: auto; display: flex; flex-direction: column; gap: 16px; padding: 16px 12px; }
   .board::before{ display: none; }
   .board-tag{ display: none; }
@@ -1592,6 +1581,22 @@ html{ scrollbar-width: thin; scrollbar-color: var(--terra-soft) var(--paper-2); 
   }
   .work-card .thumb{ height: auto !important; aspect-ratio: 16 / 10; }
   .work-card .work-meta{ position: static; left: auto; right: auto; bottom: auto; margin-top: 8px; padding: 0 4px; }
+}
+
+@media (max-width: 960px){
+  .shell{ padding: 24px 22px 80px; }
+  .hero-subline{ gap: 14px; }
+  .skill-tags-block{ max-width: 100%; }
+  .skill-tags{ max-width: 100%; gap: 10px; }
+  .skill-tag{ font-size: 19px; padding: 7px 13px; }
+  .values-row{ grid-template-columns: 1fr; }
+  .values-connectors{ display: none; }
+  .belief-title{ font-size: 26px; }
+  .about-grid{ grid-template-columns: 1fr; }
+  .about-flow{ display: none; }
+  .cta-card{ grid-template-columns: 1fr; padding: 30px 28px; }
+  .cta-links{ gap: 8px; }
+  .contact-pill{ font-size: 11px; padding: 6px 10px 6px 9px; }
   .badge-stamp{ width: 120px; height: 120px; }
   .badge-stamp .big{ font-size: 28px; }
 }
