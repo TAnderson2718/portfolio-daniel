@@ -1594,7 +1594,9 @@ html{ scrollbar-width: thin; scrollbar-color: var(--terra-soft) var(--paper-2); 
   .belief-title{ font-size: 26px; }
   .about-grid{ grid-template-columns: 1fr; }
   .about-flow{ display: none; }
-  .cta-card{ grid-template-columns: 1fr; padding: 30px 28px; }
+  /* CTA: compact sketch above the checklist so it stays in view (and fills in) while ticking */
+  .cta-card{ display: flex; flex-direction: column; padding: 30px 24px; }
+  .sketch-frame{ order: -1; width: min(240px, 60vw); margin: 0 auto 16px; }
   .cta-links{ gap: 8px; }
   .contact-pill{ font-size: 11px; padding: 6px 10px 6px 9px; }
   .badge-stamp{ width: 120px; height: 120px; }
