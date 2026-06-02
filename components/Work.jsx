@@ -13,6 +13,9 @@ function WorkCard({ item, z, onOpen }) {
   const handleDown = (e) => {
     const t = (e.touches && e.touches[0]) || e;
     downAt.current = { x: t.clientX, y: t.clientY };
+    // On narrow screens the board is a static vertical stack — don't start a drag
+    // (it would hijack touch-scrolling). Tapping still opens the case study.
+    if (typeof window !== 'undefined' && window.matchMedia('(max-width: 960px)').matches) return;
     onDown(e);
   };
   const handleClick = (e) => {
