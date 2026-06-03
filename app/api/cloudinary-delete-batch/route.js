@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { destroyMany } from '@/lib/cloudinary-admin';
+import { getSession } from '@/lib/auth';
+import { logAction } from '@/lib/audit';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,6 +23,8 @@ export async function POST(request) {
   try {
     const result = await destroyMany(publicIds);
     const deleted = Object.entries(result.deleted || {}).filter(([, v]) => v === 'deleted').length;
+    const s = await getSession(request);
+    await logAction(s?.username, 'image_delete_batch', `${deleted} image(s)`);
     return NextResponse.json({ ok: true, deleted, partial: result.partial, raw: result.deleted });
   } catch (e) {
     return NextResponse.json({ error: e.message, raw: e.raw }, { status: e.status || 500 });

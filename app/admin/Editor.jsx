@@ -1,10 +1,12 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import ImageUpload from '@/components/ImageUpload';
 import StorageWidget from './StorageWidget';
 import StorageSection from './StorageSection';
+import UsersPanel from './UsersPanel';
+import ActivityPanel from './ActivityPanel';
 
 const SECTIONS = [
   ['meta', 'Meta / SEO'],
@@ -561,7 +563,19 @@ export default function Editor({ initial }) {
   const [status, setStatus] = useState({ type: '', msg: '' });
   const [busy, setBusy] = useState(false);
   const [usageRefresh, setUsageRefresh] = useState(0);
+  const [me, setMe] = useState(null);
   const router = useRouter();
+
+  useEffect(() => {
+    fetch('/api/me')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => d && setMe(d.user))
+      .catch(() => {});
+  }, []);
+  const isSuper = me?.role === 'super';
+  const navSections = isSuper
+    ? [...SECTIONS, ['users', 'Users'], ['activity', 'Activity log']]
+    : SECTIONS;
 
   const dirty = useMemo(() => JSON.stringify(data) !== JSON.stringify(initial), [data, initial]);
 
@@ -596,8 +610,11 @@ export default function Editor({ initial }) {
   }
 
   const Form = FORMS[active];
-  const activeLabel = SECTIONS.find(([k]) => k === active)?.[1];
+  const activeLabel = navSections.find(([k]) => k === active)?.[1];
   const isStorage = active === 'storage';
+  const isUsers = active === 'users' && isSuper;
+  const isActivity = active === 'activity' && isSuper;
+  const isPanel = isStorage || isUsers || isActivity;
 
   return (
     <div className="admin-shell">
@@ -607,13 +624,18 @@ export default function Editor({ initial }) {
           <small>portfolio editor</small>
         </h1>
         <div className="admin-nav">
-          {SECTIONS.map(([k, label]) => (
+          {navSections.map(([k, label]) => (
             <button key={k} className={active === k ? 'active' : ''} onClick={() => setActive(k)}>
               {label}
             </button>
           ))}
         </div>
         <div style={{ marginTop: 'auto', paddingTop: 16 }}>
+          {me && (
+            <div className="admin-whoami">
+              {me.username} · <span className={`admin-role ${me.role}`}>{me.role}</span>
+            </div>
+          )}
           <StorageWidget refreshKey={usageRefresh} />
           <a href="/" target="_blank" className="admin-btn" style={{ display: 'block', textAlign: 'center', marginTop: 12, marginBottom: 8 }}>
             View site ↗
@@ -625,9 +647,13 @@ export default function Editor({ initial }) {
       </aside>
       <main className="admin-main">
         <h2 className="admin-h">{activeLabel}</h2>
-        {!isStorage && <p className="admin-sub">All changes are local until you click Save.</p>}
+        {!isPanel && <p className="admin-sub">All changes are local until you click Save.</p>}
         {isStorage ? (
           <StorageSection onCleanup={() => setUsageRefresh((n) => n + 1)} />
+        ) : isUsers ? (
+          <UsersPanel me={me} />
+        ) : isActivity ? (
+          <ActivityPanel />
         ) : (
           <>
             <Form data={data} setData={setData} />

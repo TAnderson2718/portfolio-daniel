@@ -4,6 +4,7 @@ import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 function LoginForm() {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
   const [busy, setBusy] = useState(false);
@@ -19,7 +20,7 @@ function LoginForm() {
       const res = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ username, password }),
       });
       if (!res.ok) {
         const { error } = await res.json().catch(() => ({}));
@@ -37,7 +38,21 @@ function LoginForm() {
     <div className="admin-login">
       <form className="admin-login-card" onSubmit={submit}>
         <h1>Admin</h1>
-        <p>Single-user content editor.</p>
+        <p>Sign in to the content editor.</p>
+        <div className="admin-field">
+          <label htmlFor="user">Username</label>
+          <input
+            id="user"
+            className="admin-input"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            autoFocus
+            autoComplete="username"
+            autoCapitalize="none"
+            spellCheck={false}
+          />
+        </div>
         <div className="admin-field">
           <label htmlFor="pw">Password</label>
           <input
@@ -46,7 +61,6 @@ function LoginForm() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            autoFocus
             autoComplete="current-password"
           />
         </div>

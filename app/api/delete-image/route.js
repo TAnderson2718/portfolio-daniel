@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createHash } from 'crypto';
+import { getSession } from '@/lib/auth';
+import { logAction } from '@/lib/audit';
 
 export const dynamic = 'force-dynamic';
 
@@ -79,5 +81,7 @@ export async function POST(request) {
       { status: 502 }
     );
   }
+  const s = await getSession(request);
+  await logAction(s?.username, 'image_delete', pid);
   return NextResponse.json({ ok: true, publicId: pid, result: cldData.result || 'ok' });
 }

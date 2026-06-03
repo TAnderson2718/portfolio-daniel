@@ -590,3 +590,75 @@
   margin-top: -8px;
   margin-bottom: 10px;
 }
+
+/* ── multi-user: whoami badge, users panel, activity log ─────────────────── */
+.admin-whoami {
+  font-size: 12px;
+  color: #b7b1a6;
+  margin-bottom: 12px;
+  word-break: break-all;
+}
+.admin-role {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #3a3a3a;
+  color: #d9d4cb;
+}
+.admin-role.super { background: #c46b47; color: #fff; }
+
+.admin-main .admin-err {
+  background: #fbeae5;
+  color: #a4502f;
+  border: 1px solid #e3a083;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.admin-card {
+  background: #fff;
+  border: 1px solid #e6e2da;
+  border-radius: 8px;
+  padding: 18px 20px;
+  max-width: 460px;
+  margin-bottom: 8px;
+}
+.admin-card h3 { margin: 0 0 12px; font-size: 14px; }
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: #fff;
+  border: 1px solid #e6e2da;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.admin-table th,
+.admin-table td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid #efece6;
+  vertical-align: middle;
+}
+.admin-table th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8a8478;
+  background: #f6f4f0;
+}
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-row-warn td { background: #fbf3e9; }
+
+.admin-btn.small {
+  padding: 4px 10px;
+  font-size: 12px;
+  margin-left: 6px;
+}
+.admin-muted { color: #8a8478; }
+.admin-you { color: #c46b47; font-size: 12px; }
