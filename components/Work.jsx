@@ -68,6 +68,7 @@ function WorkModal({ item, onClose }) {
   const hasMany = shots.length > 1;
   const popRef = useRef(null);
   const btnRef = useRef(null);
+  const touchStart = useRef(null);
 
   useEffect(() => {
     const onKey = (e) => {
@@ -104,12 +105,33 @@ function WorkModal({ item, onClose }) {
   const next = () => setIdx((i) => (i + 1) % shots.length);
   const prev = () => setIdx((i) => (i - 1 + shots.length) % shots.length);
 
+  // Mobile: swipe left/right to page through screenshots (arrows stay for desktop).
+  const onTouchStart = (e) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e) => {
+    if (!touchStart.current) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStart.current.x;
+    const dy = t.clientY - touchStart.current.y;
+    touchStart.current = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      dx < 0 ? next() : prev();
+    }
+  };
+
   return (
     <div className="work-modal-overlay" onClick={onClose}>
       <div className="work-modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label={item.client}>
         <button className="work-modal-close" onClick={onClose} aria-label="Close">✕</button>
 
-        <div className="work-modal-stage" style={item.bg ? { background: item.bg } : undefined}>
+        <div
+          className="work-modal-stage"
+          style={item.bg ? { background: item.bg } : undefined}
+          onTouchStart={hasMany ? onTouchStart : undefined}
+          onTouchEnd={hasMany ? onTouchEnd : undefined}
+        >
           {shots.length ? (
             <>
               {/* eslint-disable-next-line @next/next/no-img-element */}
