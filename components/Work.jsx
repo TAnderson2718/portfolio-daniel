@@ -66,6 +66,9 @@ function WorkModal({ item, onClose }) {
   const [idx, setIdx] = useState(0);
   const [summaryOpen, setSummaryOpen] = useState(false);
   const hasMany = shots.length > 1;
+  const [dragX, setDragX] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const clamp = (i) => Math.max(0, Math.min(shots.length - 1, i));
   const popRef = useRef(null);
   const btnRef = useRef(null);
   const touchStart = useRef(null);
@@ -75,10 +78,10 @@ function WorkModal({ item, onClose }) {
       if (e.key === 'Escape') {
         if (summaryOpen) setSummaryOpen(false);
         else onClose();
-      } else if (e.key === 'ArrowRight' && shots.length > 1) {
-        setIdx((i) => (i + 1) % shots.length);
-      } else if (e.key === 'ArrowLeft' && shots.length > 1) {
-        setIdx((i) => (i - 1 + shots.length) % shots.length);
+      } else if (e.key === 'ArrowRight') {
+        setIdx((i) => clamp(i + 1));
+      } else if (e.key === 'ArrowLeft') {
+        setIdx((i) => clamp(i - 1));
       }
     };
     window.addEventListener('keydown', onKey);
@@ -102,23 +105,36 @@ function WorkModal({ item, onClose }) {
     return () => document.removeEventListener('mousedown', onDocDown);
   }, [summaryOpen]);
 
-  const next = () => setIdx((i) => (i + 1) % shots.length);
-  const prev = () => setIdx((i) => (i - 1 + shots.length) % shots.length);
+  const next = () => setIdx((i) => clamp(i + 1));
+  const prev = () => setIdx((i) => clamp(i - 1));
 
-  // Mobile: swipe left/right to page through screenshots (arrows stay for desktop).
+  // Mobile: drag the image with your finger; release past a threshold to page.
   const onTouchStart = (e) => {
     const t = e.touches[0];
-    touchStart.current = { x: t.clientX, y: t.clientY };
+    touchStart.current = { x: t.clientX, y: t.clientY, w: e.currentTarget.clientWidth, horiz: false };
+    setDragging(true);
+    setDragX(0);
   };
-  const onTouchEnd = (e) => {
+  const onTouchMove = (e) => {
     if (!touchStart.current) return;
-    const t = e.changedTouches[0];
+    const t = e.touches[0];
     const dx = t.clientX - touchStart.current.x;
     const dy = t.clientY - touchStart.current.y;
+    if (!touchStart.current.horiz && Math.abs(dx) <= Math.abs(dy)) return; // let vertical scroll pass
+    touchStart.current.horiz = true;
+    const atEdge = (idx === 0 && dx > 0) || (idx === shots.length - 1 && dx < 0);
+    setDragX(atEdge ? dx * 0.35 : dx); // resistance past the first/last slide
+  };
+  const onTouchEnd = () => {
+    if (!touchStart.current) return;
+    const w = touchStart.current.w || window.innerWidth;
+    const d = dragX;
     touchStart.current = null;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
-      dx < 0 ? next() : prev();
-    }
+    setDragging(false);
+    const threshold = Math.min(80, w * 0.2);
+    if (d <= -threshold) setIdx((i) => clamp(i + 1));
+    else if (d >= threshold) setIdx((i) => clamp(i - 1));
+    setDragX(0);
   };
 
   return (
@@ -130,16 +146,29 @@ function WorkModal({ item, onClose }) {
           className="work-modal-stage"
           style={item.bg ? { background: item.bg } : undefined}
           onTouchStart={hasMany ? onTouchStart : undefined}
+          onTouchMove={hasMany ? onTouchMove : undefined}
           onTouchEnd={hasMany ? onTouchEnd : undefined}
         >
           {shots.length ? (
             <>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                key={idx}
-                src={cldOptimize(shots[idx], 'f_auto,q_auto,w_1600')}
-                alt={`${item.client} — screenshot ${idx + 1}`}
-              />
+              <div
+                className="work-modal-track"
+                style={{
+                  transform: `translateX(calc(${-idx * 100}% + ${dragX}px))`,
+                  transition: dragging ? 'none' : 'transform 0.32s cubic-bezier(.22,.61,.36,1)',
+                }}
+              >
+                {shots.map((s, i) => (
+                  <div className="work-modal-slide" key={i}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={cldOptimize(s, 'f_auto,q_auto,w_1600')}
+                      alt={`${item.client} — screenshot ${i + 1}`}
+                      draggable={false}
+                    />
+                  </div>
+                ))}
+              </div>
               {hasMany && (
                 <>
                   <button className="work-modal-nav work-modal-nav--prev" onClick={prev} aria-label="Previous screenshot">‹</button>
