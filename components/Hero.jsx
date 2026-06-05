@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef } from 'react';
 import { Scrap, DoodleArrow, DoodleCircle } from './Scrapbook';
 import { cldOptimize } from '@/lib/cloudinary';
 
@@ -118,8 +119,26 @@ function TestimonialScrap({ data }) {
 }
 
 function PortraitReveal({ portrait }) {
+  const ref = useRef(null);
+  // Desktop: the polaroid tilts in 3D toward the cursor (skipped for touch / reduced-motion).
+  const onMove = (e) => {
+    const el = ref.current;
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    const MAX = 9;
+    el.style.transition = 'transform 0.08s ease-out';
+    el.style.transform = `perspective(800px) rotateX(${(-py * MAX).toFixed(2)}deg) rotateY(${(px * MAX).toFixed(2)}deg) rotate(2deg) scale(1.02)`;
+  };
+  const onLeave = () => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.transition = 'transform 0.45s ease';
+    el.style.transform = ''; // ease back to the resting tilt (CSS)
+  };
   return (
-    <div className="portrait-wrap">
+    <div ref={ref} className="portrait-wrap" onMouseMove={onMove} onMouseLeave={onLeave}>
       <div className="portrait-frame">
         <div className="portrait-face" style={portrait ? { background: `url(${cldOptimize(portrait, 'f_auto,q_auto,w_640,c_fill')}) center/cover` } : undefined}>
           {!portrait && <span className="ph-label">portrait · drop your photo</span>}

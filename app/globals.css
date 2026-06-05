@@ -985,6 +985,7 @@ html{ scrollbar-width: thin; scrollbar-color: var(--terra-soft) var(--paper-2); 
   filter: drop-shadow(2px 6px 0 rgba(28,28,28,0.12)) drop-shadow(0 16px 24px rgba(28,28,28,0.18));
   transform: rotate(calc(var(--wonk, 1) * 2deg));
   margin: 30px auto 0;
+  will-change: transform;
 }
 .portrait-frame{
   position: relative;
