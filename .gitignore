@@ -8,3 +8,4 @@ out/
 # legacy prototype — kept locally, excluded from the repo
 Showcase3/
 Showcase3.zip
+.vercel

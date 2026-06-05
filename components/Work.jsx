@@ -48,6 +48,7 @@ function WorkCard({ item, z, onOpen }) {
         ) : (
           <div className="ph" style={{ '--ph-bg': item.bg }}></div>
         )}
+        <span className="work-open" aria-hidden="true">View <span className="arr">↗</span></span>
       </div>
       <div className="work-meta">
         <span className="client">{item.client}</span>

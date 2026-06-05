@@ -803,6 +803,25 @@ html{ scrollbar-width: thin; scrollbar-color: var(--terra-soft) var(--paper-2); 
   position:relative;
   overflow:hidden;
 }
+/* "View ↗" affordance — tells visitors the card opens a case study */
+.work-card .work-open{
+  position: absolute;
+  bottom: 8px; right: 8px;
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 3px 9px 2px;
+  border-radius: 999px;
+  background: rgba(28,28,28,0.62);
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  line-height: 1;
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+  pointer-events: none;
+  transition: background 0.18s, transform 0.18s;
+  z-index: 2;
+}
+.work-card .work-open .arr{ font-size: 13px; }
+.work-card:hover .work-open{ background: var(--terra); transform: translateY(-1px); }
 .work-card .work-meta{
   position: absolute;
   left: 12px; right: 12px; bottom: 8px;
