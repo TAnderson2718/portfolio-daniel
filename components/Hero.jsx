@@ -1,6 +1,6 @@
 'use client';
 
-import { Scrap, DoodleArrow, DoodleCircle } from './Scrapbook';
+import { Scrap, DoodleArrow, DoodleCircle, useDraggable } from './Scrapbook';
 import { cldOptimize } from '@/lib/cloudinary';
 
 function Tagline({ words }) {
@@ -135,6 +135,13 @@ function HeroArt({ testimonials, portrait, handnote }) {
   // identity signal. Optional handnote sits above with arrow doodle pointing
   // at the polaroid. Testimonial (if any) is still supported as a small overlay.
   const heroTestimonial = (testimonials || [])[0];
+  const { pos, drag, onDown } = useDraggable({ x: 0, y: 0 });
+  // Desktop only: on mobile the polaroid is a static centered element, so dragging
+  // there would just hijack scrolling (same rule as the work-board cards).
+  const onPolaroidDown = (e) => {
+    if (typeof window !== 'undefined' && window.matchMedia('(max-width: 1220px)').matches) return;
+    onDown(e);
+  };
   return (
     <div className="hero-art">
       <DoodleCircle style={{ top: 30, left: 30, width: 380, height: 380, opacity: 0.15 }} color="terra" />
@@ -159,12 +166,17 @@ function HeroArt({ testimonials, portrait, handnote }) {
       )}
 
       <div
+        className={'hero-polaroid' + (drag ? ' dragging' : '')}
+        onMouseDown={onPolaroidDown}
+        onTouchStart={onPolaroidDown}
         style={{
           position: 'absolute',
           top: 85,
           right: 140,
-          transform: 'rotate(calc(var(--wonk, 1) * 3deg))',
-          zIndex: 1,
+          transform: `translate(${pos.x}px, ${pos.y}px) rotate(calc(var(--wonk, 1) * 3deg))`,
+          zIndex: drag ? 50 : 1,
+          cursor: drag ? 'grabbing' : 'grab',
+          userSelect: 'none',
         }}
       >
         <PortraitReveal portrait={portrait} />
