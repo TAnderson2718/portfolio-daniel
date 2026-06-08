@@ -121,7 +121,7 @@
         "r": -3,
         "client": "Marketing site rebuild",
         "label": "Astro · Tailwind",
-        "outcome": "Loads in under a second · perfect speed scores",
+        "outcome": "Opens in under a second — on any device.",
         "bg": "#C46B47",
         "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780220067/DD4C414D-14B2-4973-8A5A-201002CF5398_ngqjsv.png",
         "shots": [
@@ -130,7 +130,7 @@
           ""
         ],
         "demoUrl": "",
-        "summary": "Rebuilt a slow, template-heavy marketing site from scratch — clean design, loads in under a second on every device, and a CMS the team can update without touching code.",
+        "summary": "A marketing site built for speed — clean, modern design that opens in under a second on any device, plus an easy way to update the words and images yourself without touching code.",
         "badge": {
           "kind": "featured",
           "label": "★ featured"
@@ -144,7 +144,7 @@
         "r": 2.5,
         "client": "AI support assistant",
         "label": "Next.js · OpenAI · pgvector",
-        "outcome": "Searches 40k help docs · cites every answer · knows when to ask a human",
+        "outcome": "Answers customer questions from your help docs — always shows its sources, and hands off to a person when needed.",
         "bg": "#1F2A24",
         "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222046/7EB56F88-40E7-4D71-8A8B-300266458FEA_tfubgn.png",
         "shots": [
@@ -153,7 +153,7 @@
           "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222106/0E856DCE-1B3B-43AB-AAB8-3C0B11425F5C_t82h5f.png"
         ],
         "demoUrl": "",
-        "summary": "Built a support assistant grounded in the client's existing help docs (about 40k pages). It drafts answers with sources for every claim and quietly passes anything it's unsure about to a human.",
+        "summary": "A smart assistant that answers customer questions using your own help articles. Every answer shows where it came from, and it hands the conversation to a real person when it’s unsure.",
         "badge": null
       },
       {
@@ -164,7 +164,7 @@
         "r": -2,
         "client": "SaaS analytics platform",
         "label": "React · tRPC · Postgres",
-        "outcome": "Pages load instantly · component library the team can extend",
+        "outcome": "A data dashboard that loads instantly — no more waiting on slow pages.",
         "bg": "#2C3036",
         "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222152/12368E91-3728-40F5-A90B-460BCB7E7EAE_gr3mlu.png",
         "shots": [
@@ -173,7 +173,7 @@
           "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222230/7E2A3A36-3828-401D-B243-9ABA5A008BCF_rlwhkd.png"
         ],
         "demoUrl": "",
-        "summary": "Rebuilt a slow dashboard from the ground up — page loads went from about 2 seconds to instant. Came with a component library the in-house team can extend without me."
+        "summary": "A data dashboard rebuilt for speed — pages that used to take a couple of seconds now appear instantly, so no one is left waiting."
       },
       {
         "x": 80,
@@ -183,7 +183,7 @@
         "r": 2,
         "client": "E-commerce store",
         "label": "Shopify · Next.js · Tailwind",
-        "outcome": "Shipped in 6 weeks · custom checkout · loads instantly on mobile",
+        "outcome": "A smooth custom checkout that’s fast on every phone.",
         "bg": "#3A2B26",
         "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222252/700D797F-860B-487E-927D-FB5C7EDEAB3F_spbwto.png",
         "shots": [
@@ -192,7 +192,7 @@
           "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222297/2B71825D-D65E-4AC2-B56E-B34CA689D55C_wsjijc.png"
         ],
         "demoUrl": "",
-        "summary": "Built a custom storefront with a fast checkout flow, mobile-first design, and clean product pages — all in 6 weeks from kickoff to live.",
+        "summary": "An online store with a simple custom checkout and product pages that look great and load instantly on phones.",
         "badge": {
           "kind": "featured",
           "label": "★ featured"
@@ -206,7 +206,7 @@
         "r": -2.5,
         "client": "Workflow automation",
         "label": "n8n · OpenAI · webhooks",
-        "outcome": "12 tools wired together · AI handles the routing",
+        "outcome": "Connects 12 apps so the repetitive work runs itself.",
         "bg": "#7A6A55",
         "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222324/87FB472C-9733-420C-BBFE-B5200D2C14A4_cvgico.png",
         "shots": [
@@ -215,7 +215,7 @@
           "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222413/1D45755F-7043-404B-AE5C-CE80723D4C14_hwityq.png"
         ],
         "demoUrl": "",
-        "summary": "Replaced a tangle of manual handoffs with a single automated flow — wires together 12 tools (CRM, email, sheets, Slack, AI), with the AI deciding what gets sent where. Runs in production without losing a record."
+        "summary": "Connects a dozen everyday apps (things like your CRM, email, spreadsheets and chat) into one automatic flow, so repetitive tasks happen on their own instead of by hand."
       },
       {
         "x": 690,
@@ -225,7 +225,7 @@
         "r": 1.5,
         "client": "Cross-platform mobile app",
         "label": "React Native · Expo · Supabase",
-        "outcome": "From idea to App Store in 8 weeks · iOS + Android",
+        "outcome": "One app for both iPhone & Android — works even without internet.",
         "bg": "#D9B27A",
         "thumbFit": "contain",
         "thumb": "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222440/563892B1-5F4A-46AE-823C-174AEFD99566_kamn8a.png",
@@ -235,7 +235,7 @@
           "https://res.cloudinary.com/dibcq1zlw/image/upload/v1780222483/33E7C9B7-DF0C-4E16-B8A5-08B0AFE19FA8_p2vici.png"
         ],
         "demoUrl": "",
-        "summary": "Designed and shipped a cross-platform app — offline-first sync, push notifications, and a clean onboarding flow. From kickoff to a live App Store / Play Store listing in 8 weeks, one codebase across both."
+        "summary": "One app that runs on both iPhone and Android, keeps working even without an internet connection, and walks new users through a clean, simple sign-up."
       }
     ]
   },
